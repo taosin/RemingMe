@@ -7,7 +7,14 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    dates: [
+      { title:'七牛云抽奖', state: '1', group:'工作', date:'11/10 18:30'},
+      { title: '七牛云抽奖', state: '1', group: '工作', date: '11/10 18:30' },
+      { title: '七牛云抽奖', state: '1', group: '工作', date: '11/10 18:30' },
+      { title: '七牛云抽奖', state: '1', group: '工作', date: '11/10 18:30' },
+      { title: '七牛云抽奖', state: '1', group: '工作', date: '11/10 18:30' }
+    ],
   },
   //事件处理函数
   bindViewTap: function() {

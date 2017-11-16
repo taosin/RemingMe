@@ -1,31 +1,61 @@
 /**index.wxss**/
-.container{
- padding: 20rpx;
- font-size: 30rpx;
+
+.container {
+    padding: 20rpx;
+    font-size: 30rpx;
 }
-.tx-todolist-check{
-  border: 2rpx solid #333;
-  width: 30rpx;
-  height: 30rpx;
-  border-radius: 50%;
-  position: relative;
-  left: 20rpx;
-  top: 28rpx;
+
+.tx-todolist-check {
+    border: 2rpx solid #333;
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    position: relative;
+    left: 20rpx;
+    top: 28rpx;
 }
-.tx-todolist-title{
-  position: relative;
-  left: 70rpx;
-  top: -10rpx;
-  font-weight: bold;
+
+.tx-todolist-title {
+    position: relative;
+    left: 70rpx;
+    top: -10rpx;
+    font-weight: bold;
 }
-.tx-todolist-group{
-  font-size: 24rpx;
-  font-weight: bold;
-  margin-left: 70rpx;
+
+.tx-todolist-group {
+    font-size: 24rpx;
+    font-weight: bold;
+    margin-left: 70rpx;
 }
-.tx-todolist-date{
-  font-size: 20rpx;
-  color: #888;
-  position: relative;
-  left: 20%;
+
+.tx-todolist-date {
+    font-size: 20rpx;
+    color: #888;
+    position: relative;
+    left: 20%;
+}
+
+.tx-index-bottom.btn.btn-add {
+    width: 80rpx;
+    height: 80rpx;
+    color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    right: 20rpx;
+    bottom: 20rpx;
+    text-align: center;
+    background-image: url(http://tx-wxapp.oss-cn-hangzhou.aliyuncs.com/icon_add.png);
+    background-size: 80rpx 80rpx;
+    z-index: 2;
+}
+
+.tx-search-bar input {
+    border: 1px solid #333;
+    padding: 5rpx 20rpx;
+    border-radius: 30rpx;
+    width: 80%;
+}
+
+.btn-add-hover {
+    opacity: .7;
 }

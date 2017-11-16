@@ -1,18 +1,26 @@
 <!--index.wxml-->
 <view class="container">
-  <view>
-  <block wx:for="{{dates}}" wx:for-item="i">
-    <view class="tx-todolist">
-      <view class="tx-todolist-check">
-      </view>
-      <view>
-        <text class="tx-todolist-title">{{i.title}}</text>      
-      </view>
-      <view>
-        <text class="tx-todolist-group">#{{i.group}}</text>      
-        <text class="tx-todolist-date">{{i.date}}</text>      
-      </view>
+    <view class="tx-search-bar">
+        <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
     </view>
-  </block>
-  </view>
+    <view class="tx-lists">
+        <block wx:for="{{dates}}" wx:for-item="i">
+            <view class="tx-todolist">
+                <view class="tx-todolist-check">
+                </view>
+                <view>
+                    <text class="tx-todolist-title">{{i.title}}</text>
+                </view>
+                <view>
+                    <text class="tx-todolist-group">#{{i.group}}</text>
+                    <text class="tx-todolist-date">{{i.date}}</text>
+                </view>
+            </view>
+
+        </block>
+    </view>
+</view>
+<view class="tx-index-bottom">
+    <view class="tx-index-bottom btn btn-add" hover-class="btn-add-hover">
+    </view>
 </view>

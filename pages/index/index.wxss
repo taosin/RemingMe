@@ -31,8 +31,8 @@
 .tx-todolist-date {
     font-size: 20rpx;
     color: #888;
-    position: relative;
-    left: 20%;
+    position: absolute;
+    right: 20%;
 }
 
 .tx-index-bottom.btn.btn-add {
@@ -50,12 +50,20 @@
 }
 
 .tx-search-bar input {
-    border: 1px solid #333;
-    padding: 5rpx 20rpx;
-    border-radius: 30rpx;
-    width: 80%;
+    /* border: 1px solid #333; */
+    padding: 10rpx 20rpx;
+    /* border-radius: 30rpx; */
+    font-weight: bold;
+}
+
+.tx-search-bar input:focus {
+    border: 1px solid red;
 }
 
 .btn-add-hover {
     opacity: .7;
+}
+
+.tx-todolist {
+    height: 120rpx;
 }

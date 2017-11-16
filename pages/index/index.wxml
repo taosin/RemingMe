@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
     <view class="tx-search-bar">
-        <input placeholder="这是一个可以自动聚焦的input" auto-focus/>
+        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" />
     </view>
-    <view class="tx-lists">
-        <block wx:for="{{dates}}" wx:for-item="i">
+    <view class="tx-lists" bindtap="setShow">
+        <block wx:for="{{datas}}" wx:for-item="i">
             <view class="tx-todolist">
                 <view class="tx-todolist-check">
                 </view>
@@ -12,8 +12,8 @@
                     <text class="tx-todolist-title">{{i.title}}</text>
                 </view>
                 <view>
-                    <text class="tx-todolist-group">#{{i.group}}</text>
-                    <text class="tx-todolist-date">{{i.date}}</text>
+                    <text class="tx-todolist-group" hidden="{{!i.tag}}">#{{i.tag}}</text>
+                    <text class="tx-todolist-date">{{i.createdAt}}</text>
                 </view>
             </view>
 
@@ -21,6 +21,6 @@
     </view>
 </view>
 <view class="tx-index-bottom">
-    <view class="tx-index-bottom btn btn-add" hover-class="btn-add-hover">
+    <view class="tx-index-bottom btn btn-add" hover-class="btn-add-hover" bindtap="createTodo">
     </view>
 </view>

@@ -26,27 +26,28 @@
     font-size: 24rpx;
     font-weight: bold;
     margin-left: 70rpx;
+    color: #888;
 }
 
 .tx-todolist-date {
     font-size: 20rpx;
     color: #888;
-    position: absolute;
-    right: 20%;
+    margin-left: 70rpx;
 }
 
 .tx-index-bottom.btn.btn-add {
-    width: 80rpx;
-    height: 80rpx;
+    width: 100rpx;
+    height: 100rpx;
     color: #fff;
     border-radius: 50%;
     position: fixed;
-    right: 20rpx;
-    bottom: 20rpx;
+    right: 40rpx;
+    bottom: 40rpx;
     text-align: center;
     background-image: url(http://tx-wxapp.oss-cn-hangzhou.aliyuncs.com/icon_add.png);
-    background-size: 80rpx 80rpx;
+    background-size: 100rpx 100rpx;
     z-index: 2;
+    box-shadow: 4rpx 4rpx 5rpx #888;
 }
 
 .tx-search-bar input {
@@ -54,6 +55,7 @@
     padding: 10rpx 20rpx;
     /* border-radius: 30rpx; */
     font-weight: bold;
+    transform: translate(0, -50%);
 }
 
 .tx-search-bar input:focus {
@@ -65,5 +67,5 @@
 }
 
 .tx-todolist {
-    height: 120rpx;
+    height: 140rpx;
 }

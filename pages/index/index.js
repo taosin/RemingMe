@@ -4,6 +4,9 @@ const AV = require('./../../libs/av-weapp-min')
 const app = getApp()
 
 Page({
+    /**
+     * 页面的初始数据
+     */
     data: {
         motto: 'Hello World',
         userInfo: {},
@@ -13,62 +16,84 @@ Page({
         showAddInput:true,
         isFocus:false
     },
-    // 事件处理函数
-    bindViewTap: function() {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
-    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad: function() {
        this.getTodoLists()
     },
+
+    /**
+     * 获取用户数据
+     */
     getUserInfo: function(e) {
-        console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
     },
+    
+    /**
+     * 获取数据列表
+     */
     getTodoLists:function (start, limit) {
         var this_ = this;
         var query = new AV.Query('Todo');
         query.descending('createdAt');
+        query.equalTo('user', AV.User.current().id);
         query.find().then(function (results) {
             this_.setData({
                 datas: results
             })
         }, function (error) { });
     },
+
+    /**
+     * 点击添加按钮
+     */
     createTodo:function () {
         this.setData({
             showAddInput:false,
             isFocus:true
         })
     },
+
+    /**
+     * 提交todo数据
+     */
     handlerSubmit:function () {
         var Todo = AV.Object.extend('Todo');
         var todo = new Todo();
         var this_ = this;
-        todo.set('title','工程师周会');
-        todo.set('content','每周工程师会议，周一下午2点');
+        todo.set('content',this_.data.txtInput);
         todo.set('state','1');
         todo.set('user', AV.User.current().id);
         todo.save().then(function (result) {
             if(result.id){
-                wx.showToast({
-                    title: '添加成功',
-                    icon: 'success'
-                })
                 this_.getTodoLists(0,20)
+                this_.setData({
+                    txtInput:'',
+                    showAddInput:true
+                })
             }
         }, function (error) {
             console.error(error);
         });
     },
+
+    /**
+    * 隐藏input
+    */
     setShow:function(){
         this.setData({
             showAddInput: true
         })
+    },
+
+    txtInput:function(e){
+        this.setData({
+            txtInput:e.detail.value
+         })
     }
 })

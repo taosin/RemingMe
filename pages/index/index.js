@@ -22,7 +22,9 @@ Page({
     onLoad: function() {
        this.getTodoLists()
     },
-
+    onPullDownRefresh: function () {
+        this.getTodoLists();
+    },
     /**
      * 获取用户数据
      */
@@ -37,7 +39,7 @@ Page({
     /**
      * 获取数据列表
      */
-    getTodoLists:function (start, limit) {
+    getTodoLists:function () {
         var this_ = this;
         var query = new AV.Query('Todo');
         query.descending('createdAt');
@@ -46,6 +48,7 @@ Page({
             this_.setData({
                 datas: results
             })
+            wx.stopPullDownRefresh()
         }, function (error) { });
     },
 

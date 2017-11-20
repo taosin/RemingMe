@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
     <view class="tx-search-bar">
-        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{txtInput}}" />
+        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" />
     </view>
     <view class="tx-lists" bindtap="setShow">
         <block wx:for="{{datas}}" wx:for-item="i">

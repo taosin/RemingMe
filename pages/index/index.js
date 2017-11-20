@@ -13,7 +13,8 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         datas: [],
         showAddInput: true,
-        isFocus: false
+        isFocus: false,
+        txtInput:''
     },
     /**
      * 生命周期函数--监听页面加载
@@ -39,7 +40,6 @@ Page({
      * 获取数据列表
      */
     getTodoLists: function () {
-        wx.showNavigationBarLoading()
         var this_ = this;
         var query = new AV.Query('Todo');
         query.descending('createdAt');
@@ -49,7 +49,6 @@ Page({
                 datas: results
             })
             wx.stopPullDownRefresh()
-            wx.hideNavigationBarLoading()
         }, function (error) { });
     },
 
@@ -57,9 +56,11 @@ Page({
      * 点击添加按钮
      */
     createTodo: function () {
-        this.setData({
+        const self = this;
+        self.setData({
             showAddInput: false,
-            isFocus: true
+            isFocus: true,
+            txtInput: ''
         })
     },
 
@@ -85,6 +86,7 @@ Page({
                     txtInput: '',
                     showAddInput: true
                 })
+                debugger
             }
         }, function (error) {
             console.error(error);

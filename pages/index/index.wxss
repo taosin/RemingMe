@@ -55,7 +55,6 @@
     padding: 10rpx 20rpx;
     /* border-radius: 30rpx; */
     font-weight: bold;
-    transform: translate(0, -50%);
 }
 
 .tx-search-bar input:focus {

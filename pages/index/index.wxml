@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
     <view class="tx-search-bar">
-        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" />
+        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" bindblur="setShow"/>
     </view>
-    <view class="tx-lists" bindtap="setShow">
+    <view class="tx-lists">
         <block wx:for="{{datas}}" wx:for-item="i">
             <view class="tx-todolist">
                 <view class="tx-todolist-check">

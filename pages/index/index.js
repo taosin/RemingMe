@@ -14,21 +14,21 @@ Page({
         datas: [],
         showAddInput: true,
         isFocus: false,
-        txtInput:''
+        txtInput: ''
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function () {
+    onLoad: function() {
         this.getTodoLists()
     },
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
         this.getTodoLists();
     },
     /**
      * 获取用户数据
      */
-    getUserInfo: function (e) {
+    getUserInfo: function(e) {
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
             userInfo: e.detail.userInfo,
@@ -39,23 +39,23 @@ Page({
     /**
      * 获取数据列表
      */
-    getTodoLists: function () {
+    getTodoLists: function() {
         var this_ = this;
         var query = new AV.Query('Todo');
         query.descending('createdAt');
         query.equalTo('user', AV.User.current().id);
-        query.find().then(function (results) {
+        query.find().then(function(results) {
             this_.setData({
                 datas: results
             })
             wx.stopPullDownRefresh()
-        }, function (error) { });
+        }, function(error) {});
     },
 
     /**
      * 点击添加按钮
      */
-    createTodo: function () {
+    createTodo: function() {
         const self = this;
         self.setData({
             showAddInput: false,
@@ -67,42 +67,41 @@ Page({
     /**
      * 提交todo数据
      */
-    handlerSubmit: function () {
+    handlerSubmit: function() {
         var Todo = AV.Object.extend('Todo');
         var todo = new Todo();
         var this_ = this;
-        if (this_.data.txtInput && this_.data.txtInput.trim()){
+        if (this_.data.txtInput && this_.data.txtInput.trim()) {
 
-        }else{
+        } else {
             return
         }
         todo.set('content', this_.data.txtInput);
         todo.set('state', '1');
         todo.set('user', AV.User.current().id);
-        todo.save().then(function (result) {
+        todo.save().then(function(result) {
             if (result.id) {
                 this_.getTodoLists(0, 20)
                 this_.setData({
                     txtInput: '',
                     showAddInput: true
                 })
-                debugger
             }
-        }, function (error) {
+        }, function(error) {
             console.error(error);
         });
     },
 
     /**
-    * 隐藏input
-    */
-    setShow: function () {
+     * 隐藏input
+     */
+    setShow: function() {
         this.setData({
             showAddInput: true
         })
     },
 
-    txtInput: function (e) {
+    txtInput: function(e) {
         this.setData({
             txtInput: e.detail.value
         })

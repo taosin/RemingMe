@@ -110,11 +110,16 @@ Page({
     // 标记为已完成
     markTodolist(e){
       var todo = AV.Object.createWithoutData('Todo', e.currentTarget.dataset.objectid);
+      const state = e.currentTarget.dataset.state;
       // 修改属性
-      todo.set('state', '0');
+      todo.set('state', state==='1'?'0':'1');
       // 保存到云端
       todo.save().then((todo)=>{
         this.getTodoLists();
       })
+    },
+
+    formatTime(e){
+      debugger
     }
 })

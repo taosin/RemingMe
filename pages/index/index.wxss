@@ -73,3 +73,10 @@
   font-weight: normal;
   text-decoration:line-through;
 }
+.finished-icon{
+  background-image: url(http://p06882p1o.bkt.clouddn.com/finished.png);
+  border: none;
+  background-size: 100%;
+  width: 32rpx;
+  height: 32rpx;
+}

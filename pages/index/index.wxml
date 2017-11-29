@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <view class="container">
   <view class="tx-search-bar">
-    <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" bindblur="setShow" />
+    <input placeholder-style="color:#ddd" placeholder="请添加事项..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" bindblur="setShow" />
   </view>
   <view class="tx-lists">
     <block wx:for="{{datas}}" wx:for-item="i">
       <view class="tx-todolist">
-        <view class="tx-todolist-check" bindtap="markTodolist" data-objectId="{{i.objectId}}">
+        <view class="tx-todolist-check {{i.state==='1'?'':'finished-icon'}}" bindtap="markTodolist" data-objectId="{{i.objectId}}" data-state="{{i.state}}">
         </view>
         <view>
-          <text class="tx-todolist-title {{i.state==='1'?'':'finished'}}">{{i.content}}</text>
+          <text class="tx-todolist-title {{i.state==='1'?'':'finished'}}" bindtap="markTodolist" data-objectId="{{i.objectId}}" data-state="{{i.state}}">{{i.content}}</text>
         </view>
         <view>
           <text class="tx-todolist-group" hidden="{{!i.tag}}">#{{i.tag}}</text>

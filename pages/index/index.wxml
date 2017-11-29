@@ -13,7 +13,10 @@
         </view>
         <view>
           <text class="tx-todolist-group" hidden="{{!i.tag}}">#{{i.tag}}</text>
-          <text class="tx-todolist-date">{{i.createdAt}}</text>
+          <view class="tx-todolist-datetime">
+            <view class="iconfont icon-shijian"></view>
+            <text class="tx-todolist-date">{{i.createdAt}}</text>
+          </view>
         </view>
       </view>
 

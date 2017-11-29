@@ -6,9 +6,9 @@
 }
 
 .tx-todolist-check {
-    border: 2rpx solid #333;
-    width: 30rpx;
-    height: 30rpx;
+    border: 4rpx solid #333;
+    width: 27rpx;
+    height: 27rpx;
     border-radius: 50%;
     position: relative;
     left: 20rpx;
@@ -30,9 +30,18 @@
 }
 
 .tx-todolist-date {
-    font-size: 20rpx;
-    color: #888;
-    margin-left: 70rpx;
+    margin-left: 20rpx;
+    float: left;
+}
+.tx-todolist-datetime{
+  overflow: hidden;
+  line-height: 40rpx;
+  color: #888;
+  margin-left: 70rpx;
+  font-size: 28rpx;
+}
+.icon-shijian{
+  float: left;
 }
 
 .tx-index-bottom.btn.btn-add {
@@ -77,6 +86,6 @@
   background-image: url(http://p06882p1o.bkt.clouddn.com/finished.png);
   border: none;
   background-size: 100%;
-  width: 32rpx;
-  height: 32rpx;
+  width: 34rpx;
+  height: 34rpx;
 }

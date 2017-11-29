@@ -45,6 +45,7 @@ Page({
         query.descending('createdAt');
         query.equalTo('user', AV.User.current().id);
         query.find().then(function(results) {
+          debugger
             this_.setData({
                 datas: results
             })

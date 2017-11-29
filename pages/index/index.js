@@ -1,7 +1,7 @@
 // index.js
 // 获取应用实例
 const AV = require('./../../libs/av-weapp-min')
-
+const util = require('./../../utils/util.js')
 Page({
     /**
      * 页面的初始数据
@@ -105,5 +105,16 @@ Page({
         this.setData({
             txtInput: e.detail.value
         })
+    },
+
+    // 标记为已完成
+    markTodolist(e){
+      var todo = AV.Object.createWithoutData('Todo', e.currentTarget.dataset.objectid);
+      // 修改属性
+      todo.set('state', '0');
+      // 保存到云端
+      todo.save().then((todo)=>{
+        this.getTodoLists();
+      })
     }
 })

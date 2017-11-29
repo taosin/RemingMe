@@ -1,26 +1,26 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="tx-search-bar">
-        <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" bindblur="setShow"/>
-    </view>
-    <view class="tx-lists">
-        <block wx:for="{{datas}}" wx:for-item="i">
-            <view class="tx-todolist">
-                <view class="tx-todolist-check">
-                </view>
-                <view>
-                    <text class="tx-todolist-title">{{i.content}}</text>
-                </view>
-                <view>
-                    <text class="tx-todolist-group" hidden="{{!i.tag}}">#{{i.tag}}</text>
-                    <text class="tx-todolist-date">{{i.createdAt}}</text>
-                </view>
-            </view>
+  <view class="tx-search-bar">
+    <input placeholder-style="color:#ddd" placeholder="请添加提醒..." focus="{{isFocus}}" confirm-type="send" hidden="{{showAddInput}}" bindconfirm="handlerSubmit" bindinput="txtInput" value="{{textInput}}" bindblur="setShow" />
+  </view>
+  <view class="tx-lists">
+    <block wx:for="{{datas}}" wx:for-item="i">
+      <view class="tx-todolist">
+        <view class="tx-todolist-check" bindtap="markTodolist" data-objectId="{{i.objectId}}">
+        </view>
+        <view>
+          <text class="tx-todolist-title {{i.state==='1'?'':'finished'}}">{{i.content}}</text>
+        </view>
+        <view>
+          <text class="tx-todolist-group" hidden="{{!i.tag}}">#{{i.tag}}</text>
+          <text class="tx-todolist-date">{{i.createdAt}}</text>
+        </view>
+      </view>
 
-        </block>
-    </view>
+    </block>
+  </view>
 </view>
 <view class="tx-index-bottom">
-    <view class="tx-index-bottom btn btn-add" hover-class="btn-add-hover" bindtap="createTodo">
-    </view>
+  <view class="tx-index-bottom btn btn-add" hover-class="btn-add-hover" bindtap="createTodo">
+  </view>
 </view>

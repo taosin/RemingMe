@@ -68,3 +68,8 @@
 .tx-todolist {
     height: 140rpx;
 }
+.finished{
+  color: #888;
+  font-weight: normal;
+  text-decoration:line-through;
+}

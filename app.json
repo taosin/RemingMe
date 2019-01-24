@@ -1,12 +1,36 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/logs/logs"
-    ],
-    "window": {
-        "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "MindMe",
-        "navigationBarTextStyle": "black"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/calendar/calendar"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "red",
+    "navigationBarTitleText": "MindMe",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ddd",
+    "selectedColor": "red",
+    "borderStyle": "black",
+    "height": "300",
+    "list": [
+      {
+        "selectedIconPath": "static/icon/icon-checkbox-selected.png",
+        "iconPath": "static/icon/icon-checkbox.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "selectedIconPath": "static/icon/icon-calendar-selected.png",
+        "iconPath": "static/icon/icon-calendar.png",
+        "pagePath": "pages/calendar/calendar"
+      },
+      {
+        "selectedIconPath": "static/icon/icon-setting-selected.png",
+        "iconPath": "static/icon/icon-setting.png",
+        "pagePath": "pages/logs/logs"
+      }
+    ]
+  }
 }
